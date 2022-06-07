@@ -1,3 +1,9 @@
+stages:
+  - install
+  - build
+  - test
+  - deploy
+
 include:
   - 'rest-calculator/.gitlab-ci-backend.yml'
   - 'rest-calculator-angular/.gitlab-ci-frontend.yml'
