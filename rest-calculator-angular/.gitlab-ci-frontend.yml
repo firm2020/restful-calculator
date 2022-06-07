@@ -25,7 +25,7 @@ build-frontend:
     - install_dependencies
   script:
     - cd rest-calculator-angular
-    - npm run build
+    - node_modules/@angular/cli/bin/ng build
   artifacts:
     paths:
       - node_modules/
