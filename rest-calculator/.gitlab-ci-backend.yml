@@ -6,7 +6,7 @@ variables:
   SONAR_HOST_URL: "http://your-sonarqube-url"
   GIT_DEPTH: 0
 build-backend:
-  image: maven-3.8-openjdk
+  image: maven:3.8-openjdk
   stage: build
   script:
     - cd rest-calculator
@@ -16,7 +16,7 @@ build-backend:
       - target/*.jar
   allow_failure: false
 test-backend:
-  image: maven-3.8-openjdk
+  image: maven:3.8-openjdk
   stage: test
   dependencies:
     - build-backend
