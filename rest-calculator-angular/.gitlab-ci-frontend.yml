@@ -24,7 +24,7 @@ build-frontend:
     - install_dependencies
   script:
     - cd rest-calculator-angular
-    - node_modules\@angular\cli\bin\ng version
+    - npm run build
 
 test-frontend:
   image: node:16.15-alpine
