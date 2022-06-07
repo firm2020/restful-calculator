@@ -1,8 +1,4 @@
-stages:
-  - install
-  - build
-  - test
-  - deploy
+
   
 
 
@@ -26,9 +22,7 @@ build-frontend:
   script:
     - cd rest-calculator-angular
     - node_modules/@angular/cli/bin/ng build
-  artifacts:
-    paths:
-      - node_modules/
+
 
 test-frontend:
   image: node:16.15-alpine
