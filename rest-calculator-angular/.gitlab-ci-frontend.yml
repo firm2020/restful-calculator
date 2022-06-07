@@ -26,6 +26,9 @@ build-frontend:
   script:
     - cd rest-calculator-angular
     - npm run build
+  artifacts:
+    paths:
+      - node_modules/
 
 test-frontend:
   image: node:16.15-alpine
