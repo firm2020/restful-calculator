@@ -7,6 +7,7 @@ install_dependencies:
   artifacts:
     paths:
       - node_modules/
+     
 
 build-frontend:
   image: node:16.15-alpine
@@ -15,7 +16,7 @@ build-frontend:
     - install_dependencies
   script:
     - cd rest-calculator-angular
-    - npm run build
+    - node_modules\@angular\cli\bin\ng version
 
 test-frontend:
   image: node:16.15-alpine
