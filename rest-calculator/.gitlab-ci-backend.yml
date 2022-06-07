@@ -11,10 +11,6 @@ build-backend:
   script:
     - cd rest-calculator
     - mvn clean install
-  artifacts:
-    paths:
-      - target/*.jar
-  allow_failure: false
 test-backend:
   image: maven:3.8-openjdk
   stage: test
@@ -23,7 +19,6 @@ test-backend:
   script:
     - cd rest-calculator
     - mvn test
-  allow_failure: false
 deploy-backend:
   stage: deploy
   image:
