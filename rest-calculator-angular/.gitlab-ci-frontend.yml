@@ -1,0 +1,16 @@
+image: node:16.15-alpine
+
+build-job:
+  stage: build
+  script:
+    - npm run build
+
+test-job:
+  stage: test
+  script:
+    - npm run test
+
+e2e-test:
+  stage: test
+  script:
+    - npm run e2e
