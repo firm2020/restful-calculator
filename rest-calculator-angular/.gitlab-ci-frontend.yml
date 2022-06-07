@@ -6,7 +6,7 @@ install_dependencies:
     - npm install
   artifacts:
     paths:
-      - node_modules/
+      - rest-calculator-angular/node_modules/
 
 build-frontend:
   image: node:16.15-alpine
