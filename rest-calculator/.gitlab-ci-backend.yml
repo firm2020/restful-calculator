@@ -1,0 +1,33 @@
+image: maven-3.8-openjdk
+cache:
+  paths:
+    - .m2/repository/
+variables:
+  SONAR_TOKEN: "your-sonarqube-token"
+  SONAR_HOST_URL: "http://your-sonarqube-url"
+  GIT_DEPTH: 0
+build-job:
+  stage: build
+  script:
+    - mvn clean install
+  artifacts:
+    paths:
+      - target/*.jar
+  allow_failure: false
+test-job:
+  stage: test
+  dependencies:
+    - build-job
+  script:
+    - mvn test
+  allow_failure: false
+deploy:
+  stage: deploy
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
+  script:
+    - kubectl config get-contexts
+    - kubectl config use-context firm2020/taschenrechner:k8s-firm2020-dadevops-dev
+    - kubectl get pods
+
