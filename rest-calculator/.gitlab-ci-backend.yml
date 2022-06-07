@@ -9,7 +9,7 @@ variables:
 build-backend:
   stage: build
   script:
-    - cd restful-calculator
+    - cd rest-calculator
     - mvn clean install
   artifacts:
     paths:
@@ -20,7 +20,7 @@ test-backend:
   dependencies:
     - build-backend
   script:
-    - cd restful-calculator
+    - cd rest-calculator
     - mvn test
   allow_failure: false
 deploy-backend:

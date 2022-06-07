@@ -3,17 +3,17 @@ image: node:16.15-alpine
 build-frontend:
   stage: build
   script:
-    - cd restful-calculator-angular
+    - cd rest-calculator-angular
     - npm run build
 
 test-frontend:
   stage: test
   script:
-    - cd restful-calculator-angular
+    - cd rest-calculator-angular
     - npm run test
 
 e2e-test-frontend:
   stage: test
   script:
-    - cd restful-calculator-angular
+    - cd rest-calculator-angular
     - npm run e2e
