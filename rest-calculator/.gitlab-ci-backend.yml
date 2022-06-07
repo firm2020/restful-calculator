@@ -18,7 +18,7 @@ build-backend:
 test-backend:
   stage: test
   dependencies:
-    - build-job
+    - build-backend
   script:
     - cd restful-calculator
     - mvn test
