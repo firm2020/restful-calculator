@@ -1,6 +1,20 @@
+cache:
+  paths:
+    - node_modules/
+
+install_dependencies:
+  image: node:16.15-alpine
+  stage: build
+  script:
+    - npm install
+  artifacts:
+    - node_modules/
+
 build-frontend:
   image: node:16.15-alpine
   stage: build
+  dependencies:
+    - install_dependencies
   script:
     - cd rest-calculator-angular
     - npm run build
