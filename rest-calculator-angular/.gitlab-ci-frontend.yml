@@ -1,18 +1,19 @@
-image: node:16.15-alpine
-
 build-frontend:
+  image: node:16.15-alpine
   stage: build
   script:
     - cd rest-calculator-angular
     - npm run build
 
 test-frontend:
+  image: node:16.15-alpine
   stage: test
   script:
     - cd rest-calculator-angular
     - npm run test
 
 e2e-test-frontend:
+  image: node:16.15-alpine
   stage: test
   script:
     - cd rest-calculator-angular
