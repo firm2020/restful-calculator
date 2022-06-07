@@ -1,6 +1,14 @@
+stages:
+  - install
+  - build
+  - test
+  
+
+
+
 install_dependencies:
   image: node:16.15-alpine
-  stage: build
+  stage: install
   script:
     - cd rest-calculator-angular
     - npm install
