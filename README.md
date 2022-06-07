@@ -29,8 +29,8 @@ REST (REpresentational State Transfer) is an architectural style, and an approac
 To install this example application, run the following commands:
 
 ```bash
-git clone https://github.com/edda92/RESTful-Calculator-Angular-7-Spring-Boot-2.git
-cd RESTful-Calculator-Angular-7-Spring-Boot-2
+git clone https://dadevops.ddns.net/firm2020/restful-calculator.git
+cd restful-calculator
 ```
 
 This will get a copy of the project installed locally. To install all of its dependencies and start each app, follow the instructions below.
@@ -53,6 +53,6 @@ In the `deploy/backend` folder there is a ready war file that can be deployable 
 ### Accessing Application
 Component         | URL                                      
 ---               | ---                                      
-Frontend          |  http://localhost:4500                   
+Frontend          |  http://localhost:4200                   
 Swagger (API Ref) |  http://localhost:8080/swagger-ui.html
 
