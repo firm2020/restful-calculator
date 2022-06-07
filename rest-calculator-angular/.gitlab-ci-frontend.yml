@@ -20,14 +20,14 @@ build-frontend:
     - install_dependencies
   script:
     - cd rest-calculator-angular
-    - node_modules/@angular/cli/bin/ng version
+    - node_modules/@angular/cli/bin/ng build
 
 test-frontend:
   image: node:16.15-alpine
   stage: test
   script:
     - cd rest-calculator-angular
-    - npm run test
+    - node_modules/@angular/cli/bin/ng test --browsers ChromeHeadless
 
 e2e-test-frontend:
   image: node:16.15-alpine
