@@ -6,22 +6,24 @@ variables:
   SONAR_TOKEN: "your-sonarqube-token"
   SONAR_HOST_URL: "http://your-sonarqube-url"
   GIT_DEPTH: 0
-build-job:
+build-backend:
   stage: build
   script:
+    - cd restful-calculator
     - mvn clean install
   artifacts:
     paths:
       - target/*.jar
   allow_failure: false
-test-job:
+test-backend:
   stage: test
   dependencies:
     - build-job
   script:
+    - cd restful-calculator
     - mvn test
   allow_failure: false
-deploy:
+deploy-backend:
   stage: deploy
   image:
     name: bitnami/kubectl:latest
