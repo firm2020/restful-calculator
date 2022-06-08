@@ -1,37 +1,21 @@
-
-  
-
-
-
-install_dependencies:
-  image: node:16.15-alpine
-  stage: pre-build
-  script:
-    - cd rest-calculator-angular
-    - npm install
-  artifacts:
-    paths:
-      - rest-calculator-angular/node_modules/
-
 build-frontend:
   image: node:16.15-alpine
   stage: build
-  dependencies:
-    - install_dependencies
   script:
     - cd rest-calculator-angular
-    - node_modules/@angular/cli/bin/ng build
+    - npm ci --prefer-offline
+    - node_modules/@angular/cli/bin/ng version
 
 test-frontend:
-  image: node:16.15-alpine
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
   script:
     - cd rest-calculator-angular
-    - node_modules/@angular/cli/bin/ng test --browsers ChromeHeadless
+    - node_modules/@angular/cli/bin/ng test --configuration=ci
 
 e2e-test-frontend:
-  image: node:16.15-alpine
+  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
   stage: test
   script:
     - cd rest-calculator-angular
-    - npm run e2e
+    - node_modules/@angular/cli/bin/ng e2e
