@@ -87,6 +87,11 @@
               "src/favicon.ico",
               "src/assets"
             ]
+          },
+          "configurations": {
+            "ci": {
+              "karmaConfig": "src/karma.conf.ci.js"
+            }
           }
         },
         "lint": {
