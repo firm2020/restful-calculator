@@ -1,11 +1,14 @@
 button{
     height: 100%;
     width: 100%;
+    background: black;
+    border-radius: 25px;
 }
 
 .calculator-numbers{
     background: #303030;
     color: white;
+    font: 1.2em "Arial", sans-serif;
 }
 
 .calc-subbody {
@@ -16,4 +19,12 @@ button{
 
 snack-bar-container.mat-snack-bar-container {
     background: #e91e63 !important;
+}
+
+.equals{
+  background-color: green;
+}
+
+.del{
+  background-color: red;
 }
