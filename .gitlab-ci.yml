@@ -1,3 +1,14 @@
+stages:
+  - build
+  - test
+  - deploy
+
+cache:
+  key: $CI_COMMIT_REF_SLUG
+  paths:
+    - rest-calculator-angular/node_modules/
+    - rest-calculator/.m2/repository
+
 include:
-  - 'rest-calculator/.gitlab-ci-backend.yml'
-  - 'rest-calculator-angular/.gitlab-ci-frontend.yml'
+#  - '/rest-calculator/.gitlab-ci-backend.yml'
+  - '/rest-calculator-angular/.gitlab-ci-frontend.yml'
