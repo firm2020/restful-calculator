@@ -5,7 +5,6 @@ describe('buttons test', () => {
   cy.get('button').contains('+').click()
   cy.get('button').contains('1').click()
   cy.get('button').contains('=').click()
-  cy.get('input').should('2')
 
   })
 })
