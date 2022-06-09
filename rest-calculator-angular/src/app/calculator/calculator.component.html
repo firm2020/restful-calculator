@@ -11,22 +11,22 @@
                 <mat-grid-tile></mat-grid-tile>
                 <mat-grid-tile></mat-grid-tile>
                 <mat-grid-tile></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(7)">7</button></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(8)">8</button></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(9)">9</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('7')">7</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('8')">8</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('9')">9</button></mat-grid-tile>
                 <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="setOperation('divide', '/')">/</button></mat-grid-tile>
                 <mat-grid-tile></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(4)">4</button></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(5)">5</button></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(6)">6</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('4')">4</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('5')">5</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('6')">6</button></mat-grid-tile>
                 <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="setOperation('multiply', '*')">*</button></mat-grid-tile>
                 <mat-grid-tile></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(1)">1</button></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(2)">2</button></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(3)">3</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('1')">1</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('2')">2</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('3')">3</button></mat-grid-tile>
                 <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="setOperation('subtract', '-')">-</button></mat-grid-tile>
                 <mat-grid-tile rowspan="2"><button class="equals" mat-button [disabled]="!resultButtonVisible()" (click)="result()"><strong>=</strong></button></mat-grid-tile>
-                <mat-grid-tile><button mat-button (click)="click(0)">0</button></mat-grid-tile>
+                <mat-grid-tile><button mat-button (click)="click('0')">0</button></mat-grid-tile>
                 <mat-grid-tile><button mat-button [disabled]="pointDisable()" (click)="insertPoint()">.</button></mat-grid-tile>
                 <mat-grid-tile></mat-grid-tile>
                 <mat-grid-tile><button [disabled]="operationSelected" mat-button (click)="setOperation('add', '+')">+</button></mat-grid-tile>
