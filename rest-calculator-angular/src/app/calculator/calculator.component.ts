@@ -23,14 +23,14 @@ export class CalculatorComponent implements OnInit {
   //if so disable other operation buttons
   operationSelected : boolean = false;
 
-  //The value that is displayed 
+  //The value that is displayed
   displayedValue : string = '0';
 
   //The duration of the SnackBar (Ref: https://material.angular.io/components/snack-bar/examples)
   // 5 seconds
   durationInSeconds = 5*1000;
 
-  //error message 
+  //error message
   errorMessage: string;
 
   //fibonacciButtonVisible
@@ -41,7 +41,7 @@ export class CalculatorComponent implements OnInit {
   operation : string;
 
   //Injecting the services into the component
-  constructor(private restCalculator : CalculatorService, private snackBar: MatSnackBar) { 
+  constructor(private restCalculator : CalculatorService, private snackBar: MatSnackBar) {
     this.firstValue = true;
   }
 
@@ -57,7 +57,7 @@ export class CalculatorComponent implements OnInit {
         this.operator1 = numberInput.toString();
         this.displayedValue = numberInput.toString();
         this.firstValue = false;
-      }else{        
+      }else{
         console.log("firstValue = " + this.firstValue + " numberInput " + numberInput);
         this.operator1 = this.operator1.concat(numberInput);
       }
@@ -132,7 +132,7 @@ export class CalculatorComponent implements OnInit {
   }
 
   resultButtonVisible(){
-    return this.operator1.length > 0 && this.operator2.length > 0 && this.operation.length > 0; 
+    return this.operator1.length > 0 && this.operator2.length > 0 && this.operation.length > 0;
   }
 
   openSnackBar(message: string, action: string, duration: number) {

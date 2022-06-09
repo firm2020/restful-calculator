@@ -30,5 +30,5 @@ deploy-backend:
     - build-backend
   script:
     - kubectl config get-contexts
-    - kubectl config use-context firm2020/taschenrechner:k8s-firm2020-dadevops-dev
+#    - kubectl config use-context firm2020/taschenrechner:k8s-firm2020-dadevops-dev
     - kubectl get pods

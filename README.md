@@ -1,8 +1,8 @@
 # Minimal Material Calculator (RESTful)
 
-![image](https://raw.githubusercontent.com/edda92/RESTful-Calculator-Angular-7-Spring-Boot-2/master/media/calculator.PNG)
+This is a Minimal RESTful Calculator implemented whit Core backend using Spring Boot REST APIs & Frontend using Angular (https://angular.io/) / Angular Material design (https://material.angular.io).
 
-This is a Minimal RESTful Calculator implemented whit Core backend using JAVA Spring (Spring boot 2) REST APIs & Frontend using Angular 7 (https://angular.io/) / Angular Material design (https://material.angular.io).
+![Calculator](calculator.png)
 
 ### Technology Stack
 Component         | Technology

@@ -1,21 +1,38 @@
 build-frontend:
-  image: node:16.15-alpine
+  image: node:14.15-alpine
   stage: build
   script:
     - cd rest-calculator-angular
-    - npm ci --prefer-offline
+    - npm ci
     - node_modules/@angular/cli/bin/ng version
 
 test-frontend:
-  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+  image: cypress/browsers:node14.15.0-chrome96-ff94
   stage: test
   script:
     - cd rest-calculator-angular
     - node_modules/@angular/cli/bin/ng test --configuration=ci
 
 e2e-test-frontend:
-  image: cypress/browsers:node16.14.2-slim-chrome100-ff99-edge
+  image: cypress/browsers:node14.15.0-chrome96-ff94
   stage: test
   script:
     - cd rest-calculator-angular
-    - node_modules/@angular/cli/bin/ng e2e
+    - npm ci
+    - npm run e2e
+  artifacts:
+    when: always
+    paths:
+      - rest-calculator-angular/cypress/videos/**/*.mp4
+      - rest-calculator-angular/cypress/screenshots/**/*.png
+    expire_in: 1 day
+
+deploy-frontend:
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: [ '' ]
+  stage: deploy
+  script:
+    - kubectl config get-contexts
+#    - kubectl config use-context firm2020/taschenrechner:k8s-firm2020-dadevops-dev
+    - kubectl get pods

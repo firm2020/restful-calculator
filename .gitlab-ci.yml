@@ -10,5 +10,5 @@ cache:
     - rest-calculator/.m2/repository
 
 include:
-#  - '/rest-calculator/.gitlab-ci-backend.yml'
+  - '/rest-calculator/.gitlab-ci-backend.yml'
   - '/rest-calculator-angular/.gitlab-ci-frontend.yml'
