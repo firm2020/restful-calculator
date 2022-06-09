@@ -4,7 +4,7 @@
           <mat-card style="width: 450px; margin: auto;" class="calculator-numbers">
               <mat-grid-list cols="5" rowHeight="1:1">
                 <mat-form-field colspan="5" appearance="outline" style="width: 100%">
-                  <input type="text" style="background-color: white; color:black" matInput disabled [(ngModel)]="displayedValue" >
+                  <input  data-testid="displayValue" type="text" style="background-color: white; color:black" matInput disabled [(ngModel)]="displayedValue" >
                 </mat-form-field>
                 <mat-grid-tile ><button class="del" mat-button (click)="delete()">⌫</button></mat-grid-tile>
                 <mat-grid-tile></mat-grid-tile>
