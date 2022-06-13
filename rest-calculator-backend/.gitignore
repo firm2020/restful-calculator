@@ -28,3 +28,4 @@ HELP.md
 ### VS Code ###
 .vscode/
 /.m2/
+/src/main/resources/static

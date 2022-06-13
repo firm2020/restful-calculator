@@ -1,0 +1,37 @@
+variables:
+  SONAR_TOKEN: "your-sonarqube-token"
+  SONAR_HOST_URL: "http://your-sonarqube-url"
+  GIT_DEPTH: 0
+
+maven-install:
+  image: maven:3.8-openjdk
+  stage: install-dependencies
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-m2
+    paths:
+      - rest-calculator-backend/.m2
+  script:
+    - cd rest-calculator-backend
+    - mvn clean install -DskipTests
+
+build-backend:
+  image: maven:3.8-openjdk
+  stage: build-backend
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-m2
+    paths:
+      - rest-calculator-backend/.m2
+  script:
+    - cd rest-calculator-backend
+    - mvn package -DskipTests
+  artifacts:
+    paths:
+      - rest-calculator-backend/target/*.jar
+    expire_in: 2 days
+
+test-backend:
+  image: maven:3.8-openjdk
+  stage: test
+  script:
+    - cd rest-calculator-backend
+    - mvn test
