@@ -1,9 +1,33 @@
 stages:
-  - install
-  - build
+  - install-dependencies
+  - build-frontend
+  - build-backend
   - test
+  - build-container-image
   - deploy
 
 include:
-#  - '/rest-calculator/.gitlab-ci-backend.yml'
-  - '/rest-calculator-angular/.gitlab-ci-frontend.yml'
+- '/rest-calculator-backend/.gitlab-ci.yml'
+- '/rest-calculator-frontend/.gitlab-ci.yml'
+
+build-container-image:
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  stage: build-container-image
+  script:
+    - >-
+      /kaniko/executor
+      --context "${CI_PROJECT_DIR}"
+      --dockerfile "${CI_PROJECT_DIR}/rest-calculator-backend/Dockerfile"
+      --destination "10.254.1.4:32000/rest-calculator:latest"
+
+deploy-on-k8s:
+  image:
+    name: dtzar/helm-kubectl:latest
+    entrypoint: [ '' ]
+  stage: deploy
+  script:
+    - helm uninstall calculator || true
+    - helm install calculator ./chart
+    - kubectl get pods

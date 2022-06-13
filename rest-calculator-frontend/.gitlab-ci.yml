@@ -1,0 +1,47 @@
+variables:
+  CYPRESS_CACHE_FOLDER: "/home/cypress/.cache"
+  CYPRESS_INSTALL_BINARY: "0"
+
+npm-install:
+  image: node:14.15-alpine
+  stage: install-dependencies
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-npm
+    paths:
+      - rest-calculator-frontend/.npm
+  script:
+    - cd rest-calculator-frontend
+    - npm ci --cache .npm --prefer-offline
+  artifacts:
+    paths:
+      - rest-calculator-frontend/node_modules
+
+build-frontend:
+  image: node:14.15-alpine
+  stage: build-frontend
+  script:
+    - cd rest-calculator-frontend
+    - node_modules/.bin/ng build --configuration=production
+  artifacts:
+    paths:
+      - rest-calculator-frontend/dist/
+
+test-frontend:
+  image: localhost:32000/nodejs-cypress-chrome:latest
+  stage: test
+  script:
+    - cd rest-calculator-frontend
+    - npm run test-ci
+
+e2e-test-frontend:
+  image: localhost:32000/nodejs-cypress-chrome:latest
+  stage: test
+  script:
+    - cd rest-calculator-frontend
+    - npm run e2e
+  artifacts:
+    when: always
+    paths:
+      - rest-calculator-frontend/cypress/videos/**/*.mp4
+      - rest-calculator-frontend/cypress/screenshots/**/*.png
+    expire_in: 5 days

@@ -1,0 +1,25 @@
+replicaCount: 1
+image:
+  repository: "10.254.1.4:32000/rest-calculator"
+  tag: "latest"
+  pullPolicy: Always
+service:
+  type: ClusterIP
+  port: 8080
+
+imagePullSecrets: [ ]
+nameOverride: ""
+fullnameOverride: ""
+
+ingress:
+  enabled: true
+  className: ""
+  annotations: { }
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: calculator-dev
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: [ ]
